@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shorten a URL</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>Shorten a URL</h1>
+      <form action="/shorten" method="POST">
+        <input type="text" name="url" placeholder="Paste a long URL here" required>
+        <button type="submit">Shorten</button>
+      </form>
+
+      <% if (error) { %>
+        <p class="error"><%= error %></p>
+      <% } %>
+
+      <% if (shortUrl) { %>
+        <div class="result">
+          <p>Here's your short link:</p>
+          <a href="<%= shortUrl %>" target="_blank"><%= shortUrl %></a>
+        </div>
+      <% } %>
+    </div>
+  </main>
+</body>
+</html>
